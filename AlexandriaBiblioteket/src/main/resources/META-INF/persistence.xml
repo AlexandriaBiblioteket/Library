@@ -25,11 +25,11 @@
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as WEB-INF/AlexandriaBiblioteket-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/AlexandriaBiblioteket-ds.xml -->
-      <jta-data-source>java:jboss/datasources/AlexandriaBiblioteketDS</jta-data-source>
-      <class>eg.alexandria.library.model.Author</class>
+      <jta-data-source>java:/LibraryDatabase</jta-data-source>
+      <!-- -<class>eg.alexandria.library.model.Author</class>
       <class>eg.alexandria.library.model.Loan</class>
       <class>eg.alexandria.library.model.Media</class>
-      <class>eg.alexandria.library.model.Person</class>
+      <class>eg.alexandria.library.model.Person</class> -->
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
