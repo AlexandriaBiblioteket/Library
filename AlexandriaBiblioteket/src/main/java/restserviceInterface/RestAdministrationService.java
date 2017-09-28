@@ -6,7 +6,7 @@ import eg.alexandria.library.model.Loan;
 import eg.alexandria.library.model.Media;
 import eg.alexandria.library.model.Person;
 
-public interface AdministrationService {
+public interface RestAdministrationService {
 	
 	public void addNewMedia(Media newMedia);
 	
