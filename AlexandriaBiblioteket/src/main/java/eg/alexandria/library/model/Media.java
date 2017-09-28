@@ -12,6 +12,10 @@ import javax.persistence.*;
 @NamedQuery(name="Media.findAll", query="SELECT m FROM Media m")
 public class Media implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static final int LOAN_PERIOD		= 30;
+	public static final int EXTEND_LOAN		= 10;
+	public static final int OVERDUE_FEE		= 1;
 
 	@Id
 	private int id;
