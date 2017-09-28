@@ -3,6 +3,7 @@ package RestServiceImplementations;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,7 +12,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import eg.alexandria.library.data.MediaRepository;
+import eg.alexandria.library.data.PersonRepository;
 import eg.alexandria.library.model.Loan;
 import eg.alexandria.library.model.Media;
 import eg.alexandria.library.model.Person;
@@ -21,27 +25,30 @@ import restserviceInterface.RestAdministrationService;
 @Path("/admin")
 @Stateless
 public class RestAdministrationServiceImplementation implements RestAdministrationService {
-	
-	
-	
-	//Inject something
+		
+	@Inject
+	private MediaRepository mediaObject;
+	private PersonRepository personObject;
 
 	@POST
 	@Override
 	@Path("/newmedia")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void addNewMedia(Media newMedia) {
-		// TODO Auto-generated method stub
-
+	public Response addNewMedia(Media newMedia) {	
+		
+		mediaObject.addMedia(newMedia); //ought to have a return type indicating success of persistence
+		
+		return Response.status(201).build();
+		
 	}
 
 	@GET
 	@Override
 	@Path("/listperson/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Person listAllAboutPerson(@PathParam("id") int loanerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Response findPersonById(@PathParam("id") int loanerId) {
+				
+		return Response.ok(personObject.getPersonById(loanerId)).status(200).build();
 	}
 
 	@GET
@@ -55,11 +62,36 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 
 	@POST
 	@Override
-	@Path("/newperson")
+	@Path("/newperson/{name}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void createNewPerson(Person newLoaner) {
-		// TODO Auto-generated method stub
+	public Response createNewPerson(@PathParam("name") String newLoaner) {
 
+			personObject.addPerson(newLoaner);
+			
+			return Response.status(201).build();
+
+	}
+
+	@GET
+	@Override
+	@Path("/deleteperson/{id}")
+	public Response deletePerson(@PathParam("id") int id) {
+		
+		personObject.deletePerson(id);;
+		
+		return Response.status(200).build();
+		
+	}
+
+	@GET
+	@Override
+	@Path("/updateperson/{id}/{newname}")
+	public Response updatePerson(@PathParam("id") int id, @PathParam("newname") String newName) {
+
+		personObject.updatePerson(id, newName);
+		
+		return Response.status(200).build();
+		
 	}
 
 }

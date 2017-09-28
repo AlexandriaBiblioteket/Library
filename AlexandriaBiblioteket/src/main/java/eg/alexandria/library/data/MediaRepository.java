@@ -55,8 +55,8 @@ public class MediaRepository {
 	//Overload of addMedia above
 	public void addMedia(Media media) {
 		
-		Media m	= new Media(media.getAuthorID(), media.getIsbn(), media.getName());
-		em.persist(m);
+		//Media m	= new Media(media.getAuthorID(), media.getIsbn(), media.getName());
+		em.persist(media);
 	}
 	
 }
