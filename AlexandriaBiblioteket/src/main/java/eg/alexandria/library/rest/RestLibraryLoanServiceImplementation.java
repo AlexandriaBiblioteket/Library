@@ -1,4 +1,4 @@
-package RestServiceImplementations;
+package eg.alexandria.library.rest;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -9,7 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 import eg.alexandria.library.data.LoanRepository;
-import restserviceInterface.RestLibraryLoanService;
+import eg.alexandria.library.rest.interfaces.RestLibraryLoanService;
 
 
 @Path("/loan")

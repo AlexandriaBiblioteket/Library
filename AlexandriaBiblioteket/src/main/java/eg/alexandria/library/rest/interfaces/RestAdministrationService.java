@@ -1,4 +1,4 @@
-package restserviceInterface;
+package eg.alexandria.library.rest.interfaces;
 
 import java.util.List;
 

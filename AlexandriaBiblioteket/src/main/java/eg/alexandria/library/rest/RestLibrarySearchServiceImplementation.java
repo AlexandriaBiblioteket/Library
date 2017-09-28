@@ -1,4 +1,4 @@
-package RestServiceImplementations;
+package eg.alexandria.library.rest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import eg.alexandria.library.data.AuthorRepository;
 import eg.alexandria.library.data.MediaRepository;
 import eg.alexandria.library.model.Author;
 import eg.alexandria.library.model.Media;
-import restserviceInterface.RestLibrarySearchService;
+import eg.alexandria.library.rest.interfaces.RestLibrarySearchService;
 
 @Path("/search")
 @Stateless

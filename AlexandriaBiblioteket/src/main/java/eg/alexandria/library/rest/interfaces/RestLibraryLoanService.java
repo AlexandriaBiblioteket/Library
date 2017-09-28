@@ -1,4 +1,4 @@
-package restserviceInterface;
+package eg.alexandria.library.rest.interfaces;
 
 import javax.ws.rs.core.Response;
 

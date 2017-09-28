@@ -1,4 +1,4 @@
-package RestServiceImplementations;
+package eg.alexandria.library.rest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import eg.alexandria.library.data.PersonRepository;
 import eg.alexandria.library.model.Loan;
 import eg.alexandria.library.model.Media;
 import eg.alexandria.library.model.Person;
-import restserviceInterface.RestAdministrationService;
+import eg.alexandria.library.rest.interfaces.RestAdministrationService;
 
 
 @Path("/admin")
