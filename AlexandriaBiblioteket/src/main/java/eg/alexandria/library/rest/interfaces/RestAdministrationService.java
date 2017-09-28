@@ -11,7 +11,8 @@ import eg.alexandria.library.model.Person;
 public interface RestAdministrationService {
 	
 	public Response addNewMedia(Media newMedia);
-	
+	public Response deleteMedia(int id);
+	public Response updateMedia(int id, byte status);
 
 	public List<Loan> listAllPersonsLoan(int loanerId);
 	

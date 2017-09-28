@@ -101,4 +101,26 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 		
 	}
 
+	@GET
+	@Override
+	@Path("/deletemedia/{id}")
+	public Response deleteMedia(@PathParam("id") int id) {
+		
+		mediaObject.deleteMedia(id);
+		
+		return Response.status(200).build();
+		
+	}
+
+	@GET
+	@Override
+	@Path("/deletemedia/{id}/{status}")
+	public Response updateMedia(@PathParam("id") int id, @PathParam("status") byte status) {
+		
+		mediaObject.updateMedia(id, status);
+
+		return Response.status(200).build();
+		
+	}
+
 }
