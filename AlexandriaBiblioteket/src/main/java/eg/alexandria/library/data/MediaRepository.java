@@ -52,4 +52,11 @@ public class MediaRepository {
 		m.setStatus(status);
 	}
 	
+	//Overload of addMedia above
+	public void addMedia(Media media) {
+		
+		Media m	= new Media(media.getAuthorID(), media.getIsbn(), media.getName());
+		em.persist(m);
+	}
+	
 }
