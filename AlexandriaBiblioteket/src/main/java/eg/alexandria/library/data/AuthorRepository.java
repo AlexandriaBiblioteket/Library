@@ -20,13 +20,24 @@ public class AuthorRepository {
 	}
 	
 	public List<Author> findAuthorsByName(String name){
-		Query q				= em.createQuery("select author from Author author where name = :name", Author.class);
-		q.setParameter("name", name);
+		Query q				= em.createQuery("select author from Author author where author.name like :name", Author.class);
+		q.setParameter("name", "%" + name.toLowerCase() + "%");
 		return q.getResultList();
 	}
 	
-	public void addAuthor(Author author) {
+	public void addAuthor(String name) {
+		Author author		= new Author(name);
 		em.persist(author);
+	}
+	
+	public void deleteAuthor(int id) {
+		Author a			= em.find(Author.class, id);
+		em.remove(a);
+	}
+	
+	public void updateAuthor(int id, String newName) {
+		Author a			= em.find(Author.class, newName);
+		a.setName(newName);
 	}
 	
 }

@@ -28,6 +28,12 @@ public class Media implements Serializable {
 
 	public Media() {
 	}
+	
+	public Media(int authorID, String isbn, String name) {
+		this.authorID		= authorID;
+		this.isbn			= isbn;
+		this.name			= name;
+	}
 
 	public int getId() {
 		return this.id;
