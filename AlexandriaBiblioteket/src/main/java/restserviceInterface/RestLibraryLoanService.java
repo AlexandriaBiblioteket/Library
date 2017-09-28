@@ -11,7 +11,7 @@ public interface RestLibraryLoanService {
 
 	
 	
-	public void renewLoan(Media object);
+	
 
 	
 

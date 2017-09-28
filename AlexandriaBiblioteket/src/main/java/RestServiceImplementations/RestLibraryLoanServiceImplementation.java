@@ -21,7 +21,7 @@ public class RestLibraryLoanServiceImplementation implements RestLibraryLoanServ
 	@POST
 	@Override
 	@Path("/new/{id1}/{id2}")
-	public void createLoan(@PathParam("id1")int LoanerId, @FormParam("id2") int objectId) {
+	public void createLoan(@PathParam("id1")int LoanerId, @PathParam("id2") int objectId) {
 		// TODO Auto-generated method stub
 
 	}
@@ -51,10 +51,6 @@ public class RestLibraryLoanServiceImplementation implements RestLibraryLoanServ
 
 	}
 
-	@Override
-	public void renewLoan(Media object) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
