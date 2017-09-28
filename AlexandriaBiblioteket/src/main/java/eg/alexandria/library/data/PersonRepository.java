@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import eg.alexandria.library.model.Author;
 import eg.alexandria.library.model.Person;
 
 @ApplicationScoped
@@ -21,7 +20,7 @@ public class PersonRepository {
 	}
 	
 	public List<Person> findPersonsByName(String name){
-		Query q				= em.createQuery("select person from Person person where person.name like :name", Author.class);
+		Query q				= em.createQuery("select person from Person person where person.name like :name", Person.class);
 		q.setParameter("name", "%" + name.toLowerCase() + "%");
 		return q.getResultList();
 	}
