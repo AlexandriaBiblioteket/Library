@@ -9,8 +9,8 @@ public interface RestLibrarySearchService {
 	
 	public List<Media> findByAuthor(String searchName);
 	public List<Media> findByTitle(String searchTitle);
-	public Media findByISBN(String searchISBN);
-	public List<Media> findByFriText(String searchtext);
+	public List<Media> findByISBN(String searchISBN);
+
 	
 
 }

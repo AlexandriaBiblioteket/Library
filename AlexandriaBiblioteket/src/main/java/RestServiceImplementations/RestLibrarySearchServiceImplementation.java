@@ -52,31 +52,27 @@ public class RestLibrarySearchServiceImplementation implements RestLibrarySearch
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Media>  findByTitle(@PathParam("string") String searchTitle) {
 		
+		List<Media> mediaList = new ArrayList<>();
 		
-		// TODO Auto-generated method stub
-		return null;
+		mediaList.addAll(mediaObject.findMediaByTitle(searchTitle));
+				
+		return mediaList;
 	}
 
 	@GET
 	@Override
 	@Path("/findbyisbn/{string}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Media findByISBN(@PathParam("string") String searchISBN) {
+	public List<Media> findByISBN(@PathParam("string") String searchISBN) {
 		
+		List<Media> mediaList = new ArrayList<>();
 		
-		// TODO Auto-generated method stub
-		return null;
+		mediaList.addAll(mediaObject.findMediaByISBN(searchISBN));
+				
+		return mediaList;
+
 	}
 
-	@GET
-	@Override
-	@Path("/{string}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Media> findByFriText(@PathParam("string") String fritext) {
-		
-		
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }
