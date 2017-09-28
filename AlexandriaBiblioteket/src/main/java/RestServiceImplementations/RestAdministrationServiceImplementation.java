@@ -1,5 +1,6 @@
 package RestServiceImplementations;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -14,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import eg.alexandria.library.data.LoanRepository;
 import eg.alexandria.library.data.MediaRepository;
 import eg.alexandria.library.data.PersonRepository;
 import eg.alexandria.library.model.Loan;
@@ -29,6 +31,7 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 	@Inject
 	private MediaRepository mediaObject;
 	private PersonRepository personObject;
+	private LoanRepository loanObject;
 
 	@POST
 	@Override
@@ -56,8 +59,12 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 	@Path("/listpersonsloan/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Loan> listAllPersonsLoan(@PathParam("id") int loanerId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		List<Loan> loanList = new ArrayList<>();
+		
+		loanList.addAll(loanObject.findLoansByBorrower(loanerId));
+		
+		return loanList;
 	}
 
 	@POST
