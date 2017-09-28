@@ -10,11 +10,15 @@ public interface RestLibraryLoanService {
 //	public void deleteReminder(Person lateLoaner, Media object);
 
 	
-	public void createLoan(Person Loaner, Media object); //remember to clear reservations
-	public void renewLoan(Media object);
-	public void returnLoan(Media object);
 	
-	public void reserveMedia( Person wouldbeLoaner, Media object);
+	public void renewLoan(Media object);
+
+	
+
+	public void reserveMedia(int wouldbeLoanerId, int objectId);
+	public void returnLoan(int objectId);
+	public void renewLoan(int objectId);
+	public void createLoan(int LoanerId, int objectId);
 	
 	
 }
