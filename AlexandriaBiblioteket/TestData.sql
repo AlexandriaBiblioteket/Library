@@ -52,7 +52,16 @@ VALUES (1000,"Head First Java 2nd Edition", 9780596009205,2, 9, 4),
 (1001, "Java: A Beginner's Guide Sixth Edition",9780071809252, 2, 10, 8),
 (1002, "Introduction to Java Programming: Brief Version, 10th Edition", 9780596007126, 2,11, 2),
 (1003, "Intro to Java Programming, Comprehensive Version (10th Edition)", 9780133761313,2, 12, 3),
-(1004, "Herregud & Co. Familjekalender 2018", 9789173875714,2, 13, 3);        
+(1004, "Herregud & Co. Familjekalender 2018", 9789173875714,2, 13, 3); 
+
+
+insert into loan (id, personid, mediaid, dateOut, dueBack, returned, fee)
+values (1, 4, 1000, "2017-01-01", "2017-03-27", "2017-09-01", "500 kr"),
+(2, 8, 1001, "2017-02-01", "2017-04-27", "2017-04-27", ""),
+(3, 2, 1002, "2017-05-10", "2017-08-27", "2017-09-27", "50 kr"),
+(4, 3, 1003, "2017-08-27", "2017-10-27", null, ""),
+(5, 3, 1004, "2017-08-27", "2017-10-27", "2017-09-30", "");
+
          
       
 
