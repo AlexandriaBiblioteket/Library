@@ -2,6 +2,8 @@ package eg.alexandria.library.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -33,6 +35,18 @@ public class Loan implements Serializable {
 	private Date returned;
 
 	public Loan() {
+	}
+	
+	public Loan(int mediaID, int personID) {
+		this.mediaID		= mediaID;
+		this.personID		= personID;
+		this.dateOut		= new Date();
+		
+		Calendar cal		= Calendar.getInstance();
+		cal.setTime(this.dateOut);
+		cal.add(Calendar.DATE, Media.LOAN_PERIOD);
+		
+		this.dueBack		= cal.getTime();
 	}
 
 	public int getId() {
