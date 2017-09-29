@@ -7,7 +7,7 @@ import eg.alexandria.library.model.Media;
 
 public interface RestLibrarySearchService {
 	
-	public List<Media> findByAuthor(String searchName);
+	public List<Author> findByAuthor(String searchName);
 	public List<Media> findByTitle(String searchTitle);
 	public List<Media> findByISBN(String searchISBN);
 

@@ -32,17 +32,17 @@ public class RestLibrarySearchServiceImplementation implements RestLibrarySearch
 	@Override
 	@Path("/findbyauthor/{string}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Media> findByAuthor(@PathParam("string") String searchName) {
+	public List<Author> findByAuthor(@PathParam("string") String searchName) {
 		
 		List<Author> authorList = authorObject.findAuthorsByName(searchName);
 		List<Media> mediaList = new ArrayList<>();
 		
 		for(Author author:authorList) {
 			
-			mediaList.addAll(author.getMedias());
+			author.getMedias();
 		}			
 
-		return mediaList;
+		return authorList;
 	}
 
 	@GET
