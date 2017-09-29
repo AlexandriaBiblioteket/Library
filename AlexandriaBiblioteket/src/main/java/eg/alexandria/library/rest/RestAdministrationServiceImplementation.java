@@ -6,6 +6,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -69,19 +71,19 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 
 	@POST
 	@Override
-	@Path("/newperson/{name}")
+	@Path("/newperson/")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createNewPerson(@PathParam("name") String newLoaner) {
+	public Response createNewPerson(@FormParam("name") String newLoaner) {
 
-			personObject.addPerson(newLoaner);
+			personObject.addPerson(newLoaner); // should be a bit more than just name, ie turn this into an object in the future
 			
 			return Response.status(201).build();
 
 	}
 
-	@GET
+	@DELETE
 	@Override
-	@Path("/deleteperson/{id}")
+	@Path("/person/{id}")
 	public Response deletePerson(@PathParam("id") int id) {
 		
 		personObject.deletePerson(id);;
@@ -90,7 +92,7 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 		
 	}
 
-	@GET
+	@PUT
 	@Override
 	@Path("/updateperson/{id}/{newname}")
 	public Response updatePerson(@PathParam("id") int id, @PathParam("newname") String newName) {
@@ -101,9 +103,9 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 		
 	}
 
-	@GET
+	@DELETE
 	@Override
-	@Path("/deletemedia/{id}")
+	@Path("/media/{id}")
 	public Response deleteMedia(@PathParam("id") int id) {
 		
 		mediaObject.deleteMedia(id);
@@ -112,9 +114,9 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 		
 	}
 
-	@GET
+	@PUT
 	@Override
-	@Path("/deletemedia/{id}/{status}")
+	@Path("/updatemedia/{id}/{status}")
 	public Response updateMedia(@PathParam("id") int id, @PathParam("status") byte status) {
 		
 		mediaObject.updateMedia(id, status);

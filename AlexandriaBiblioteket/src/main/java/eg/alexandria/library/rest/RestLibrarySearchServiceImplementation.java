@@ -72,7 +72,4 @@ public class RestLibrarySearchServiceImplementation implements RestLibrarySearch
 		return mediaList;
 
 	}
-
-
-
 }
