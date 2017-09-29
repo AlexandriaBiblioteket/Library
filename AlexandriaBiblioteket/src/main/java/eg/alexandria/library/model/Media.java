@@ -18,6 +18,8 @@ public class Media implements Serializable {
 	public static final int EXTEND_LOAN = 10;
 	public static final long OVERDUE_FEE = 1;
 
+	public static final int LOAN_PERIOD = 30;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(unique=true, nullable=false)
