@@ -39,8 +39,7 @@ public class RestLibrarySearchServiceImplementation implements RestLibrarySearch
 		
 		for(Author author:authorList) {
 			
-		mediaList.addAll(mediaObject.findMediaByAuthor(author.getId()));
-		
+			mediaList.addAll(author.getMedias());
 		}			
 
 		return mediaList;

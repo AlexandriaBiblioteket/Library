@@ -35,12 +35,12 @@ public class Loan implements Serializable {
 	private Date returned;
 
 	//bi-directional many-to-one association to Media
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER,  cascade=CascadeType.ALL)
 	@JoinColumn(name="mediaID")
 	private Media media;
 
 	//bi-directional many-to-one association to Person
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER,  cascade=CascadeType.ALL)
 	@JoinColumn(name="personID")
 	private Person person;
 

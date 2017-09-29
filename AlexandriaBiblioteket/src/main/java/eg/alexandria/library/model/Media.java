@@ -2,6 +2,9 @@ package eg.alexandria.library.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -37,12 +40,13 @@ public class Media implements Serializable {
 	private byte status;
 
 	//bi-directional many-to-one association to Loan
-	@OneToMany(mappedBy="media")
+	@OneToMany(mappedBy="media", cascade= CascadeType.ALL , fetch=FetchType.EAGER)
 	private List<Loan> loans;
 
 	//bi-directional many-to-one association to Author
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER , cascade=CascadeType.ALL)
 	@JoinColumn(name="authorID")
+	@JsonIgnore
 	private Author author;
 
 	public Media() {

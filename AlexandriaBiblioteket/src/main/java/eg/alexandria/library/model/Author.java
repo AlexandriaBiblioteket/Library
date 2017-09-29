@@ -24,7 +24,7 @@ public class Author implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to Media
-	@OneToMany(mappedBy="author")
+	@OneToMany(mappedBy="author" , cascade= CascadeType.ALL , fetch=FetchType.EAGER)
 	private List<Media> medias;
 
 	public Author() {
