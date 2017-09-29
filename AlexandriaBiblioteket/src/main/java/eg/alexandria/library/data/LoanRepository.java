@@ -28,7 +28,9 @@ public class LoanRepository {
 		return q.getResultList();
 	}
 	
-	public void addLoan(Media media, Person person) {
+	public void addLoan(int mediaID, int personID) {
+		Media media		= em.find(Media.class, mediaID);
+		Person person	= em.find(Person.class, personID);
 		Loan l			= new Loan(media, person);
 		em.persist(l);
 	}
