@@ -14,7 +14,7 @@ import java.util.List;
 @NamedQuery(name="Media.findAll", query="SELECT m FROM Media m")
 public class Media implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	public static final int EXTEND_LOAN = 10;
 	public static final long OVERDUE_FEE = 1;
 
@@ -25,6 +25,9 @@ public class Media implements Serializable {
 
 	@Column(length=32)
 	private String isbn;
+
+	@Column(length=10)
+	private String mediatype;
 
 	@Column(length=200)
 	private String name;
@@ -42,11 +45,12 @@ public class Media implements Serializable {
 
 	public Media() {
 	}
-
-	public Media(Author author, String isbn2, String name2) {
+	
+	public Media(Author author, String isbn, String name, String mediatype) {
 		this.author = author;
-		this.isbn = isbn2;
-		this.name=name2;
+		this.isbn = isbn;
+		this.name=name;
+		this.mediatype=mediatype;
 		
 	}
 
@@ -64,6 +68,14 @@ public class Media implements Serializable {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public String getMediatype() {
+		return this.mediatype;
+	}
+
+	public void setMediatype(String mediatype) {
+		this.mediatype = mediatype;
 	}
 
 	public String getName() {

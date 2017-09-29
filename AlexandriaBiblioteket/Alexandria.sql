@@ -1,13 +1,13 @@
 /*******************************************************************************
  * Selected metadata objects
  * -------------------------
- * Extracted at 2017-09-29 09:48:52
+ * Extracted at 2017-09-29 10:36:10
  ******************************************************************************/
 
 /*******************************************************************************
  * Tables
  * ------
- * Extracted at 2017-09-29 09:48:52
+ * Extracted at 2017-09-29 10:36:10
  ******************************************************************************/
 
 CREATE TABLE author (
@@ -36,11 +36,12 @@ CREATE TABLE loan (
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE loan COMMENT = '';
 CREATE TABLE media (
-  ID       Integer(11) NOT NULL,
-  `name`   NVarChar(200) COLLATE utf8_general_ci,
-  ISBN     NVarChar(32) COLLATE utf8_general_ci,
-  status   TinyInt(4),
-  authorID Integer(11), 
+  ID        Integer(11) NOT NULL,
+  `name`    NVarChar(200) COLLATE utf8_general_ci,
+  ISBN      NVarChar(32) COLLATE utf8_general_ci,
+  status    TinyInt(4),
+  authorID  Integer(11),
+  mediatype NVarChar(10) COLLATE utf8_general_ci, 
   PRIMARY KEY (
       ID
   )
@@ -67,7 +68,7 @@ ALTER TABLE person COMMENT = '';
 /*******************************************************************************
  * Unique Constraints
  * ------------------
- * Extracted at 2017-09-29 09:48:52
+ * Extracted at 2017-09-29 10:36:10
  ******************************************************************************/
 
 ALTER TABLE member ADD CONSTRAINT UK9qv6yhjqm8iafto8qk452gx8h UNIQUE 
@@ -76,13 +77,8 @@ ALTER TABLE member ADD CONSTRAINT UK9qv6yhjqm8iafto8qk452gx8h UNIQUE
 /*******************************************************************************
  * Foreign Key Constraints
  * -----------------------
- * Extracted at 2017-09-29 09:48:52
+ * Extracted at 2017-09-29 10:36:10
  ******************************************************************************/
-
-ALTER TABLE media ADD CONSTRAINT fk_media_author FOREIGN KEY (authorID)
-  REFERENCES author (ID)
-  ON DELETE NO ACTION 
-  ON UPDATE NO ACTION;
 
 ALTER TABLE loan ADD CONSTRAINT fk_loan_media FOREIGN KEY (mediaID)
   REFERENCES media (ID)
@@ -91,6 +87,11 @@ ALTER TABLE loan ADD CONSTRAINT fk_loan_media FOREIGN KEY (mediaID)
 
 ALTER TABLE loan ADD CONSTRAINT fk_loan_person FOREIGN KEY (personID)
   REFERENCES person (ID)
+  ON DELETE NO ACTION 
+  ON UPDATE NO ACTION;
+
+ALTER TABLE media ADD CONSTRAINT fk_media_author FOREIGN KEY (authorID)
+  REFERENCES author (ID)
   ON DELETE NO ACTION 
   ON UPDATE NO ACTION;
 

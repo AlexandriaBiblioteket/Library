@@ -43,8 +43,8 @@ public class MediaRepository {
 		em.remove(m);
 	}
 	
-	public void addMedia(Author author, String isbn, String name) {
-		Media m				= new Media(author, isbn, name);
+	public void addMedia(Author author, String isbn, String name, String mediatype) {
+		Media m				= new Media(author, isbn, name, mediatype);
 		em.persist(m);
 	}
 	
