@@ -38,5 +38,6 @@ public class PersonRepository {
 	public void updatePerson(int id, String newName) {
 		Person p			= em.find(Person.class, id);
 		p.setName(newName);
-	}
+	} 
+	
 }

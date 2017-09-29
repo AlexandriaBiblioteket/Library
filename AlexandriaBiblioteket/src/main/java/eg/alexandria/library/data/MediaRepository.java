@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import eg.alexandria.library.model.Author;
 import eg.alexandria.library.model.Media;
 
 @ApplicationScoped
@@ -42,8 +43,8 @@ public class MediaRepository {
 		em.remove(m);
 	}
 	
-	public void addMedia(int authorID, String isbn, String name) {
-		Media m				= new Media(authorID, isbn, name);
+	public void addMedia(Author author, String isbn, String name) {
+		Media m				= new Media(author, isbn, name);
 		em.persist(m);
 	}
 	

@@ -2,6 +2,7 @@ package eg.alexandria.library.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -9,34 +10,44 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name="media")
 @NamedQuery(name="Media.findAll", query="SELECT m FROM Media m")
 public class Media implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	public static final int LOAN_PERIOD		= 30;
-	public static final int EXTEND_LOAN		= 10;
-	public static final int OVERDUE_FEE		= 1;
+
+	public static final int EXTEND_LOAN = 10;
+	public static final long OVERDUE_FEE = 1;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(unique=true, nullable=false)
 	private int id;
 
-	private int authorID;
-
+	@Column(length=32)
 	private String isbn;
 
+	@Column(length=200)
 	private String name;
-
-	private int personID;
 
 	private byte status;
 
+	//bi-directional many-to-one association to Loan
+	@OneToMany(mappedBy="media")
+	private List<Loan> loans;
+
+	//bi-directional many-to-one association to Author
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="authorID")
+	private Author author;
+
 	public Media() {
 	}
-	
-	public Media(int authorID, String isbn, String name) {
-		this.authorID		= authorID;
-		this.isbn			= isbn;
-		this.name			= name;
+
+	public Media(Author author, String isbn2, String name2) {
+		this.author = author;
+		this.isbn = isbn2;
+		this.name=name2;
+		
 	}
 
 	public int getId() {
@@ -45,14 +56,6 @@ public class Media implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getAuthorID() {
-		return this.authorID;
-	}
-
-	public void setAuthorID(int authorID) {
-		this.authorID = authorID;
 	}
 
 	public String getIsbn() {
@@ -71,20 +74,42 @@ public class Media implements Serializable {
 		this.name = name;
 	}
 
-	public int getPersonID() {
-		return this.personID;
-	}
-
-	public void setPersonID(int personID) {
-		this.personID = personID;
-	}
-
 	public byte getStatus() {
 		return this.status;
 	}
 
 	public void setStatus(byte status) {
 		this.status = status;
+	}
+
+	public List<Loan> getLoans() {
+		return this.loans;
+	}
+
+	public void setLoans(List<Loan> loans) {
+		this.loans = loans;
+	}
+
+	public Loan addLoan(Loan loan) {
+		getLoans().add(loan);
+		loan.setMedia(this);
+
+		return loan;
+	}
+
+	public Loan removeLoan(Loan loan) {
+		getLoans().remove(loan);
+		loan.setMedia(null);
+
+		return loan;
+	}
+
+	public Author getAuthor() {
+		return this.author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 }

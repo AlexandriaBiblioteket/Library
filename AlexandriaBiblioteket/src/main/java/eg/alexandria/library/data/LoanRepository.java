@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import eg.alexandria.library.model.Loan;
 import eg.alexandria.library.model.Media;
+import eg.alexandria.library.model.Person;
 
 public class LoanRepository {
 	
@@ -27,8 +28,8 @@ public class LoanRepository {
 		return q.getResultList();
 	}
 	
-	public void addLoan(int mediaID, int personID) {
-		Loan l			= new Loan(mediaID, personID);
+	public void addLoan(Media media, Person person) {
+		Loan l			= new Loan(media, person);
 		em.persist(l);
 	}
 	

@@ -39,5 +39,9 @@ public class AuthorRepository {
 		Author a			= em.find(Author.class, newName);
 		a.setName(newName);
 	}
+
+
+	
+	
 	
 }
