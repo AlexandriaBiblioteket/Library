@@ -40,8 +40,8 @@ public class Media implements Serializable {
 	private byte status;
 
 	//bi-directional many-to-one association to Loan
-	@OneToMany(mappedBy="media", cascade= CascadeType.ALL , fetch=FetchType.EAGER)
-	private List<Loan> loans;
+//	@OneToMany(mappedBy="media", cascade= CascadeType.ALL , fetch=FetchType.EAGER)
+//	private List<Loan> loans;
 
 	//bi-directional many-to-one association to Author
 	@ManyToOne(fetch=FetchType.EAGER , cascade=CascadeType.ALL)
@@ -100,27 +100,27 @@ public class Media implements Serializable {
 		this.status = status;
 	}
 
-	public List<Loan> getLoans() {
-		return this.loans;
-	}
+//	public List<Loan> getLoans() {
+//		return this.loans;
+//	}
+//
+//	public void setLoans(List<Loan> loans) {
+//		this.loans = loans;
+//	}
 
-	public void setLoans(List<Loan> loans) {
-		this.loans = loans;
-	}
-
-	public Loan addLoan(Loan loan) {
-		getLoans().add(loan);
-		loan.setMedia(this);
-
-		return loan;
-	}
-
-	public Loan removeLoan(Loan loan) {
-		getLoans().remove(loan);
-		loan.setMedia(null);
-
-		return loan;
-	}
+//	public Loan addLoan(Loan loan) {
+//		getLoans().add(loan);
+//		loan.setMedia(this);
+//
+//		return loan;
+//	}
+//
+//	public Loan removeLoan(Loan loan) {
+//		getLoans().remove(loan);
+//		loan.setMedia(null);
+//
+//		return loan;
+//	}
 
 	public Author getAuthor() {
 		return this.author;
