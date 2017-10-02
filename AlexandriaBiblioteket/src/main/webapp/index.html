@@ -18,6 +18,78 @@
 
 <html>
 <head>
-<meta http-equiv="Refresh" content="0; URL=index.jsf">
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+img {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+</style>
 </head>
+
+<body>
+
+<header>
+
+<h1>Alexandria library API </h1>
+
+<img src="resources/gfx/burning-book.png"></img>
+
+<br/>
+
+</header>
+
+<table >
+  <tr>
+    <th colspan="3">http://localhost:8080/alexandriabiblioteket/admin/</th>
+      
+<tr><td>/newmedia </td><td> POST </td><td> consumes a JSON media object, add a media (book etc) to database</td></tr>
+<tr><td>/listperson/{id}</td><td> GET</td><td> id of person, get the facts about a person</td></tr>
+<tr><td>/listpersonsloan/{id}</td><td> GET </td><td> id of person, gets the loans of a person</td></tr>
+<tr><td>/newperson/ </td><td> POST</td><td> consumes a JSON person object, add a person to the database</td></tr>
+<tr><td>/listperson/{id}</td><td> DELETE</td><td> id of a person, removes person from database</td></tr>
+<tr><td>/updateperson/{id}/{newname}</td><td> PUT </td><td> id of a person and a new name, change the name of a person</td> </tr>
+<tr><td>/media/{id}</td><td> DELETE </td><td> id of media, removes media object from database</td></tr>
+<tr><td>/updatemedia/{id}/{status}</td><td> POST</td><td>id of media and change of media status number, change the status of an media object</td></tr>
+</tr>
+</table>
+
+<br />
+
+<table >
+  <tr>
+    <th colspan="3">http://localhost:8080/alexandriabiblioteket/loan/ </th>
+
+<tr><td> /new/ </td><td> POST </td><td>Requires {id} of person and {id} of media to loan. Creates a loan of a media object.</td></tr>
+<tr><td>/renew/{id} </td><td> PUT </td><td> Requires the {id} of the media object which loan time should be extended.</td></tr>
+<tr><td> /return/{id} </td><td> GET </td><td> id of a media object, to return to the library.</td></tr>
+<tr><td> /reserv/ </td><td> POST </td><td> id of person to reserve the media object of a id. (Not implemented)! </td></tr>
+
+</table>
+
+<br />
+
+<table >
+  <tr>
+    <th colspan="3">http://localhost:8080/alexandriabiblioteket/search/</th>
+
+<tr><td>/findbytitle/{string}</td><td> GET</td><td>Search the database for media objects created by the named author</td></tr>
+<tr><td>/findbyisbn/{string}</td><td> GET </td><td>Search the database for books with the specific ISBN number</td></tr>
+<tr><td>/findbyauthor/{string}</td><td> GET </td><td>Search the database for</td></tr>
+
+
+
+
+
+</body>
 </html>

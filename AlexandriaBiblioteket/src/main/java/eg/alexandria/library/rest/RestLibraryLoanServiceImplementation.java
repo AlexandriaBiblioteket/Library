@@ -2,6 +2,7 @@ package eg.alexandria.library.rest;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -24,8 +25,8 @@ public class RestLibraryLoanServiceImplementation implements RestLibraryLoanServ
 	
 	@POST
 	@Override
-	@Path("/new/{id1}/{id2}")
-	public Response createLoan(@PathParam("id1")int LoanerId, @PathParam("id2") int objectId) {
+	@Path("/new/")
+	public Response createLoan(@FormParam("personid")int LoanerId, @FormParam("mediaid") int objectId) {
 						
 		loanObject.addLoan(objectId, LoanerId);
 
@@ -59,8 +60,8 @@ public class RestLibraryLoanServiceImplementation implements RestLibraryLoanServ
 	
 	@POST
 	@Override
-	@Path("/reserv/{id1}/{id2}")
-	public Response reserveMedia(@PathParam("id1") int wouldbeLoanerId, @PathParam("id2") int objectId) {
+	@Path("/reserv/")
+	public Response reserveMedia(@FormParam("loanerid") int wouldbeLoanerId, @FormParam("mediaid") int objectId) {
 		
 		// TODO Auto-generated method stub
 		return Response.status(418).build();
