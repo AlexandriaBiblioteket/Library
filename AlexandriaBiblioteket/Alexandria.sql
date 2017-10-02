@@ -1,13 +1,16 @@
+use alexandria;
+
+
 /*******************************************************************************
  * Selected metadata objects
  * -------------------------
- * Extracted at 2017-09-29 10:36:10
+ * Extracted at 2017-10-02 10:07:33
  ******************************************************************************/
 
 /*******************************************************************************
  * Tables
  * ------
- * Extracted at 2017-09-29 10:36:10
+ * Extracted at 2017-10-02 10:07:33
  ******************************************************************************/
 
 CREATE TABLE author (
@@ -66,9 +69,17 @@ CREATE TABLE person (
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE person COMMENT = '';
 /*******************************************************************************
+ * Indices
+ * -------
+ * Extracted at 2017-10-02 10:07:33
+ ******************************************************************************/
+
+CREATE INDEX FKodtsfp2vo18f5gl55fpnb9ph4 
+ ON media(authorID);
+/*******************************************************************************
  * Unique Constraints
  * ------------------
- * Extracted at 2017-09-29 10:36:10
+ * Extracted at 2017-10-02 10:07:33
  ******************************************************************************/
 
 ALTER TABLE member ADD CONSTRAINT UK9qv6yhjqm8iafto8qk452gx8h UNIQUE 
@@ -77,7 +88,7 @@ ALTER TABLE member ADD CONSTRAINT UK9qv6yhjqm8iafto8qk452gx8h UNIQUE
 /*******************************************************************************
  * Foreign Key Constraints
  * -----------------------
- * Extracted at 2017-09-29 10:36:10
+ * Extracted at 2017-10-02 10:07:33
  ******************************************************************************/
 
 ALTER TABLE loan ADD CONSTRAINT fk_loan_media FOREIGN KEY (mediaID)
