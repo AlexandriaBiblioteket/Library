@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import eg.alexandria.library.model.Author;
 
-@Path("author")
+@Path("/author")
 public class AuthorResourceRESTService {
 	
 	@OPTIONS
