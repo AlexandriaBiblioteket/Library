@@ -1,20 +1,4 @@
-<!--
-    JBoss, Home of Professional Open Source
-    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-    contributors by the @authors tag. See the copyright.txt in the
-    distribution for a full listing of individual contributors.
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
-<!-- Plain HTML page that kicks us into the app -->
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -51,7 +35,7 @@ img {
 
 <table >
   <tr>
-    <th colspan="3">http://localhost:8080/alexandriabiblioteket/admin/</th>
+    <th colspan="3">http://localhost:8080/AlexandriaBiblioteket/rest/admin/</th>
       
 <tr><td>/newmedia </td><td> POST </td><td> consumes a JSON media object, add a media (book etc) to database</td></tr>
 <tr><td>/listperson/{id}</td><td> GET</td><td> id of person, get the facts about a person</td></tr>
@@ -61,14 +45,14 @@ img {
 <tr><td>/updateperson/{id}/{newname}</td><td> PUT </td><td> id of a person and a new name, change the name of a person</td> </tr>
 <tr><td>/media/{id}</td><td> DELETE </td><td> id of media, removes media object from database</td></tr>
 <tr><td>/updatemedia/{id}/{status}</td><td> POST</td><td>id of media and change of media status number, change the status of an media object</td></tr>
-</tr>
+
 </table>
 
 <br />
 
 <table >
   <tr>
-    <th colspan="3">http://localhost:8080/alexandriabiblioteket/loan/ </th>
+    <th colspan="3">http://localhost:8080/AlexandriaBiblioteket/rest/loan/ </th>
 
 <tr><td> /new/ </td><td> POST </td><td>Requires {id} of person and {id} of media to loan. Creates a loan of a media object.</td></tr>
 <tr><td>/renew/{id} </td><td> PUT </td><td> Requires the {id} of the media object which loan time should be extended.</td></tr>
@@ -81,14 +65,14 @@ img {
 
 <table >
   <tr>
-    <th colspan="3">http://localhost:8080/alexandriabiblioteket/search/</th>
+    <th colspan="3">http://localhost:8080/AlexandriaBiblioteket/rest/search/</th>
 
 <tr><td>/findbytitle/{string}</td><td> GET</td><td>Search the database for media objects created by the named author</td></tr>
 <tr><td>/findbyisbn/{string}</td><td> GET </td><td>Search the database for books with the specific ISBN number</td></tr>
 <tr><td>/findbyauthor/{string}</td><td> GET </td><td>Search the database for</td></tr>
 
 
-
+</table>
 
 
 </body>

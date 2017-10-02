@@ -42,20 +42,16 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 	@Inject
 	private LoanRepository loanObject;
 
-	@GET
+	@OPTIONS
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/")
-	@Produces(MediaType.TEXT_HTML)
-	public Response optionsForAuthorResource() throws MalformedURLException, URISyntaxException {
-		
-		URL myURL = new URL("http://localhost:8080/alexandriabiblioteket/");
-		URL page1URL = new URL(myURL, "index.html");
-		
-		//return Response.seeOther(page1URL.toURI()).build();
-		
-		return Response.status(200).build();
-	}
-	
-	
+	public Response optionsForAuthorResource() {
+		return Response.status(200)
+				.header("Allow", "POST,GET,PUT")
+				.header("Content-Type", MediaType.APPLICATION_JSON)
+				.header("Content-Length", "0")
+				.build();
+	}	
 	
 	@POST
 	@Override
