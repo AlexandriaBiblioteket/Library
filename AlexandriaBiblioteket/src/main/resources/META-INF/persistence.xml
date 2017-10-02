@@ -25,7 +25,7 @@
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as WEB-INF/AlexandriaBiblioteket-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/AlexandriaBiblioteket-ds.xml -->
-      <jta-data-source>java:/LibraryDatabase</jta-data-source>
+      <jta-data-source>java:/mysql</jta-data-source>
       <!-- -<class>eg.alexandria.library.model.Author</class>
       <class>eg.alexandria.library.model.Loan</class>
       <class>eg.alexandria.library.model.Media</class>
