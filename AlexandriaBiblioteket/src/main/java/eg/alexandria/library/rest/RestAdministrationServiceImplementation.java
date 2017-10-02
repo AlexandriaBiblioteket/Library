@@ -1,5 +1,9 @@
 package eg.alexandria.library.rest;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +13,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -32,9 +37,26 @@ public class RestAdministrationServiceImplementation implements RestAdministrati
 		
 	@Inject
 	private MediaRepository mediaObject;
+	@Inject
 	private PersonRepository personObject;
+	@Inject
 	private LoanRepository loanObject;
 
+	@GET
+	@Path("/")
+	@Produces(MediaType.TEXT_HTML)
+	public Response optionsForAuthorResource() throws MalformedURLException, URISyntaxException {
+		
+		URL myURL = new URL("http://localhost:8080/alexandriabiblioteket/");
+		URL page1URL = new URL(myURL, "index.html");
+		
+		//return Response.seeOther(page1URL.toURI()).build();
+		
+		return Response.status(200).build();
+	}
+	
+	
+	
 	@POST
 	@Override
 	@Path("/newmedia")
